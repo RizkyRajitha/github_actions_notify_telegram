@@ -1,3 +1,63 @@
+# Telegram Notification for Github action
+
+<p align="center">
+  <a href="https://telegram.org/"><img alt="Telegram icon" src="https://telegram.org/img/t_logo.svg?1"></a>
+</p>
+
+[ guide to create a bot and adding to telegram chat ](https://dev.to/rizkyrajitha/get-notifications-with-telegram-bot-537l)
+
+![telegram chat message example ](img-telegram-chat.jpg)
+
+### add TELEGRAM_BOT_ID and TELEGRAM_CHAT_ID to the secrets in github repo
+
+Example
+
+```
+
+name: Telegram Notification
+
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  Publish:
+    runs-on: [ubuntu-latest]
+
+    steps:
+      - name: checkout master  branch # checkout master  branch
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: run yarn install and build # go to temp folder and run npm build to create files.
+        run: |
+          cd temp
+          yarn install
+          yarn build
+
+      - name: Notify via TELEGRAM BOT app Success
+        uses: RizkyRajitha/github_actions_notify_telegram@v1
+        if: ${{ success() }}
+        with:
+          TELEGRAM_BOT_ID: ${{ secrets.TELEGRAM_BOT_ID }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          STATUS: true
+          CUSTOMMESSAGE: " Demo Published \xF0\x9F\x9A\x80 via GitHub Actions "
+
+      - name: Notify via TELEGRAM BOT app Fail
+        uses: RizkyRajitha/github_actions_notify_telegram@v1
+        if: ${{ failure() }}
+        with:
+          TELEGRAM_BOT_ID: ${{ secrets.TELEGRAM_BOT_ID }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          STATUS: false
+          CUSTOMMESSAGE: "Demo publishing \xE2\x9B\x94 via GitHub Actions Failed"
+
+
+```
+
 # Create a JavaScript Action
 
 <p align="center">
@@ -8,7 +68,7 @@ Use this template to bootstrap the creation of a JavaScript action.:rocket:
 
 This template includes tests, linting, a validation workflow, publishing, and versioning guidance.
 
-If you are new, there's also a simpler introduction.  See the [Hello World JavaScript Action](https://github.com/actions/hello-world-javascript-action)
+If you are new, there's also a simpler introduction. See the [Hello World JavaScript Action](https://github.com/actions/hello-world-javascript-action)
 
 ## Create an action from this template
 
@@ -68,7 +128,7 @@ See the [toolkit documentation](https://github.com/actions/toolkit/blob/master/R
 
 GitHub Actions will run the entry point from the action.yml. Packaging assembles the code into one file that can be checked in to Git, enabling fast and reliable execution and preventing the need to check in node_modules.
 
-Actions are run from GitHub repos.  Packaging the action will create a packaged action in the dist folder.
+Actions are run from GitHub repos. Packaging the action will create a packaged action in the dist folder.
 
 Run prepare
 

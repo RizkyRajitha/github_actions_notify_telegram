@@ -1,19 +1,23 @@
-name: 'Github Actions Notify Telegram'
-description: 'Send a notification to a Telegram chat via a Telegram bot'
+name: "Github Actions Notify Telegram"
+description: "Send a notification to a Telegram chat via a Telegram bot"
 inputs:
-  TELEGRAM_BOT_ID:  # id of input
-    description: 'ID of the Telegram bot'
+  TELEGRAM_BOT_ID: # id of input
+    description: "ID of the Telegram bot"
     required: true
-    default: 'null'
-  TELEGRAM_CHAT_ID:  # id of input
-    description: 'ID of the chat. Telegram bot will send message to this chat'
+    default: "null"
+  TELEGRAM_CHAT_ID: # id of input
+    description: "ID of the chat. Telegram bot will send message to this chat"
     required: true
-    default: 'null'
-  STATUS:  # id of input
-    description: 'status of the workflow . pass status true || false in 2 if conditions '
+    default: "null"
+  STATUS: # id of input
+    description: "status of the workflow . pass status true || false in 2 if conditions "
     required: true
-    default: 'true'
+    default: "true"
+  CUSTOMMESSAGE:
+    description: "Notify message send via the Telegram bot"
+    required: true
+    default: "Successfully Completed Github Action"
 
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
+  using: "node12"
+  main: "dist/index.js"
