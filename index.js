@@ -10,7 +10,7 @@ async function run() {
       core.getInput("CUSTOMMESSAGE") || "Successfully Completed Github Action";
     const STATUS = core.getInput("STATUS") || true;
 
-    let msg = STATUS
+    let msg = STATUS==='true'
       ? CUSTOMMESSAGE + " \xE2\x9C\x85"
       : CUSTOMMESSAGE + " \xE2\x9D\x8C";
 
