@@ -6,11 +6,14 @@ async function run() {
   try {
     const ms = core.getInput("milliseconds");
 
+    
     const TELEGRAM_BOT_ID = core.getInput("TELEGRAM_BOT_ID");
     const TELEGRAM_CHAT_ID = core.getInput("TELEGRAM_CHAT_ID");
     const status = core.getInput("STATUS");
 
+
     core.debug(ms);
+ 
 
     let msg = status
       ? "GitHub actions successfully completed " + "\xE2\x9C\x85"

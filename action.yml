@@ -10,7 +10,7 @@ inputs:
     required: true
     default: 'null'
   STATUS:  # id of input
-    description: 'status of the workflow you can pass status true || false '
+    description: 'status of the workflow . pass status true || false in 2 if conditions '
     required: true
     default: 'true'
 
