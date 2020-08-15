@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./
+    - uses: ./index.js
       with:
         TELEGRAM_BOT_ID: ${{ secrets.TELEGRAM_BOT_ID }}
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
