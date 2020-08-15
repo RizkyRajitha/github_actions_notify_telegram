@@ -4,20 +4,15 @@ const fetch = require("node-fetch");
 // most @actions toolkit packages have async methods
 async function run() {
   try {
-    const ms = core.getInput("milliseconds");
-
-    
     const TELEGRAM_BOT_ID = core.getInput("TELEGRAM_BOT_ID");
     const TELEGRAM_CHAT_ID = core.getInput("TELEGRAM_CHAT_ID");
-    const status = core.getInput("STATUS");
+    const CUSTOMMESSAGE =
+      core.getInput("CUSTOMMESSAGE") || "Successfully Completed Github Action";
+    const STATUS = core.getInput("STATUS") || true;
 
-
-    core.debug(ms);
- 
-
-    let msg = status
-      ? "GitHub actions successfully completed " + "\xE2\x9C\x85"
-      : "GitHub actions Failed " + "\xE2\x9D\x8C";
+    let msg = STATUS
+      ? CUSTOMMESSAGE + " \xE2\x9C\x85"
+      : CUSTOMMESSAGE + " \xE2\x9D\x8C";
 
     let data = await fetch(
       `https://api.telegram.org/bot${TELEGRAM_BOT_ID}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${msg}`,
