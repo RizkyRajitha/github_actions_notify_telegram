@@ -1,13 +1,19 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: 'Github Actions Notify Telegram'
+description: 'Send a notification to a Telegram chat via a Telegram bot'
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
+  TELEGRAM_BOT_ID:  # id of input
+    description: 'ID of the Telegram bot'
     required: true
-    default: '1000'
-outputs:
-  time: # output will be available to future steps
-    description: 'The message to output'
+    default: 'null'
+  TELEGRAM_CHAT_ID:  # id of input
+    description: 'ID of the chat. Telegram bot will send message to this chat'
+    required: true
+    default: 'null'
+  STATUS:  # id of input
+    description: 'status of the workflow . add  ${{ success() }} . or you can pass status true || false '
+    required: true
+    default: 'true'
+
 runs:
   using: 'node12'
   main: 'dist/index.js'
