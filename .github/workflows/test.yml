@@ -18,7 +18,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           STATUS: true
           CUSTOMMESSAGE: "Testing Gihub \xF0\x9F\x94\xAC Action For Telegram Notify Action \xF0\x9F\x94\xAE "
-          JOBSTATUS: ${{ env.job.status }}
+          JOBSTATUS: ${{ job.status }}
           GITHUB_RUN_NUMBER: ${{env.GITHUB_RUN_NUMBER}}
           GITHUB_REPOSITORY: ${{env.GITHUB_REPOSITORY}}
           GITHUB_RUN_ID: ${{env.GITHUB_RUN_ID}}
