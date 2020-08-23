@@ -22,7 +22,7 @@ async function run() {
 
     let msg =
       STATUS === "true"
-        ? `${CUSTOMMESSAGE} \xE2\x9C\x85 ${
+        ? `${CUSTOMMESSAGE} \xE2\x9C\x85 \n${
             JOBSTATUS ? "Job status : " + JOBSTATUS + "\n" : ""
           } ${
             GITHUB_RUN_NUMBER
@@ -43,7 +43,7 @@ async function run() {
           ${GITHUB_SHA ? "GitHub commit SHA : " + GITHUB_SHA + "\n" : ""} 
 
           `
-        : ` ${CUSTOMMESSAGE}  " \xE2\x9D\x8C  ${
+        : ` ${CUSTOMMESSAGE}  " \xE2\x9D\x8C  \n${
             JOBSTATUS ? "Job status : " + JOBSTATUS + "\n" : ""
           } ${
             GITHUB_RUN_NUMBER
