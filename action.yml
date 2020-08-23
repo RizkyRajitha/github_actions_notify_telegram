@@ -18,6 +18,41 @@ inputs:
     required: true
     default: "Successfully Completed Github Action"
 
+  JOBSTATUS:
+    description: Job status"
+    required: false
+    default: "false"
+
+  GITHUB_RUN_NUMBER:
+    description: "GitHub Run Number"
+    required: false
+    default: "0"
+
+  GITHUB_REPOSITORY:
+    description: "GitHub Repository "
+    required: false
+    default: ""
+
+  GITHUB_RUN_ID:
+    description: "GitHub Run ID"
+    required: false
+    default: "0"
+
+  GITHUB_ACTOR:
+    description: "Triggered user"
+    required: false
+    default: ""
+
+  GITHUB_EVENT_NAME:
+    description: "Triggered event"
+    required: false
+    default: ""
+
+  GITHUB_SHA:
+    description: "GitHub commit SHA "
+    required: false
+    default: ""
+
 runs:
   using: "node12"
   main: "dist/index.js"
