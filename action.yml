@@ -9,19 +9,23 @@ inputs:
     description: "ID of the chat. Telegram bot will send message to this chat"
     required: true
     default: "null"
-  STATUS: # id of input
-    description: "status of the workflow . pass status true || false in 2 if conditions "
-    required: true
-    default: "true"
-  CUSTOMMESSAGE:
-    description: "Notify message send via the Telegram bot"
+  CUSTOMMESSAGESUCCESS:
+    description: "Notify message send via the Telegram bot when success"
     required: true
     default: "Successfully Completed Github Action"
+  CUSTOMMESSAGESFAILURE:
+    description: "Notify message send via the Telegram bot when failed"
+    required: true
+    default: "Github Action Failed"
+  CUSTOMMESSAGESCANCELLED:
+    description: "Notify message send via the Telegram bot when cancelled"
+    required: true
+    default: "Github Action Cancled"
 
   JOBSTATUS:
     description: Job status"
-    required: false
-    default: "false"
+    required: true
+    default: "success"
 
   GITHUB_RUN_NUMBER:
     description: "GitHub Run Number"
