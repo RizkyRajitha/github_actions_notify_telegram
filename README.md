@@ -4,7 +4,7 @@
   <a href="https://telegram.org/"><img alt="Telegram icon" src="https://telegram.org/img/t_logo.svg?1"></a>
 </p>
 
-[ guide to create a bot and adding to telegram chat ](https://dev.to/rizkyrajitha/get-notifications-with-telegram-bot-537l)
+# [ Guide to create a bot and adding to telegram chat ](https://dev.to/rizkyrajitha/get-notifications-with-telegram-bot-537l)
 
 ![telegram chat message example ](img-telegram-chat.jpg)
 
@@ -37,23 +37,21 @@ jobs:
           yarn install
           yarn build
 
-      - name: Notify via TELEGRAM BOT app Success
+      - name: Notify via TELEGRAM BOT
         uses: RizkyRajitha/github_actions_notify_telegram@v1
-        if: ${{ success() }}
         with:
           TELEGRAM_BOT_ID: ${{ secrets.TELEGRAM_BOT_ID }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          STATUS: true
-          CUSTOMMESSAGE: " Demo Published \xF0\x9F\x9A\x80 via GitHub Actions "
-
-      - name: Notify via TELEGRAM BOT app Fail
-        uses: RizkyRajitha/github_actions_notify_telegram@v1
-        if: ${{ failure() }}
-        with:
-          TELEGRAM_BOT_ID: ${{ secrets.TELEGRAM_BOT_ID }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          STATUS: false
-          CUSTOMMESSAGE: "Demo publishing \xE2\x9B\x94 via GitHub Actions Failed"
+          CUSTOMMESSAGESUCCESS: "Published \xF0\x9F\x9A\x80 Blog via GitHub Actions"
+          CUSTOMMESSAGESFAILURE: "Publishing  Blog \xE2\x9B\x94 via GitHub Actions Failed"
+          CUSTOMMESSAGESCANCELLED: "Publishing  Blog \xE2\x9B\x94 via GitHub Actions Cancelled"
+          JOBSTATUS: ${{ job.status }}
+          GITHUB_RUN_NUMBER: ${{ github.run_number }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_SHA: ${{ github.sha }}
 
 
 ```
@@ -61,7 +59,7 @@ jobs:
 # Create a JavaScript Action
 
 <p align="center">
-  <a href="https://github.com/actions/javascript-action/actions"><img alt="javscript-action status" src="https://github.com/actions/javascript-action/workflows/units-test/badge.svg"></a>
+  <a href="https://github.com/RizkyRajitha/github_actions_notify_telegram/actions"><img alt="javscript-action status" src="https://github.com/RizkyRajitha/github_actions_notify_telegram/workflows/units-test/badge.svg"></a>
 </p>
 
 Use this template to bootstrap the creation of a JavaScript action.:rocket:
